@@ -75,6 +75,41 @@
         }
 
     </script>
+    <div>
+
+        <img src="Dog.jpg" id="image" style="height: 200px;width: 200px;" onclick="newImage()"></img>
+    
+    </div>
+    
+    <script>
+        correct = 0;
+        wrong = 0;
+        usingImage = 1;
+
+        function newImage() {
+
+            switch (usingImage) {
+
+                case 1:
+                    usingImage++;
+                    document.getElementById("image").src = "Panther.jpg";
+                    break;
+
+                case 2:
+                    usingImage++;
+                    document.getElementById("image").src = "Rabbit.jpg";
+                    break;
+
+                case 3:
+                    usingImage = 1;
+                    document.getElementById("image").src = "Dog.jpg";
+                    break;
+            }
+
+
+        }
+
+    </script>
 </body>
 
 </html>
