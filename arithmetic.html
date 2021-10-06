@@ -18,7 +18,29 @@
     <input type="button" onclick="powers()" value="compute">
 
 <p id="result"></p>
+<div>
+    <input type="radio" id="plus" name="mathOperations" onclick="processRadio()" value="+"
+           checked>
+    <label for="plus">plus</label>
+  </div>
+  
+  <div>
+    <input type="radio" id="minus" name="mathOperations" onclick="processRadio()" value="-">
+    <label for="minus">minus</label>
+  </div>
+  
+  <div>
+    <input type="radio" id="times" name="mathOperations" onclick="processRadio()" value="*">
+    <label for="times">times</label>
+  </div>
 
+  <div>
+    <input type="radio" id="divide" name="mathOperations" onclick="processRadio()" value="/">
+    <label for="divide">divide</label>
+  </div>
+
+
+  <p id="mathResult"></p>
 </form>
 
 
@@ -40,6 +62,41 @@
         document.getElementById("result").innerHTML = result;
 
     }
+    function processRadio(){
+
+var baseValue = document.getElementById("baseValue").value;
+var exponentValue = document.getElementById("exponentValue").value;
+
+
+var mathOperations = document.getElementsByName('mathOperations');
+var operator="";
+var mathResult=0;
+
+for (var i = 0, length = mathOperations.length; i < length; i++) {
+
+    if (mathOperations[i].checked) {
+
+        operator = mathOperations[i].value;
+        
+        if(operator =="+"){
+            mathResult = parseFloat(baseValue)+parseFloat(exponentValue);
+        }else if(operator == "-"){
+            mathResult = baseValue-exponentValue;
+        }else if(operator == "*"){
+            mathResult = baseValue*exponentValue;
+        }else{
+            mathResult = baseValue/exponentValue;
+        }
+
+        document.getElementById("mathResult").innerHTML = mathResult;
+
+        break;
+    }
+}
+
+
+
+}
 
    
 
