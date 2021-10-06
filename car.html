@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
  
-    <title>Car features and specifications</title>
+    <title>Car bookings</title>
 <body>
 
-<h1>Pandiri Govinda Reddy orders a car</h1>
+<h1>Pandiri Govinda Reddy Dommety orders a car</h1>
 
 
       
       <form>
         <input type="checkbox" id="electric" name="carType"   
-          value="electric" checked>
+          value="electric">
         <label for="electric">Electric</label></br>
       
         <input type="checkbox" id="ac" name="carType" 
@@ -18,13 +18,27 @@
         <label for="cb1_olive">AC</label></br>
       
         <input type="checkbox" id="gps" name="carType"   
-           value="GPS" checked>
+           value="GPS">
         <label for="gps">GPS</label></br></br>
 
         <input type="button" onclick="orderCar()" value="Order a car">
       </form></br>
       
+      <form>
+        <div>
+            <label for="property">Enter a property</label>
+            <input type ="text" id="property" value="color">
+        </div>
         
+        <div>
+            <label for="propertyValue">Enter a value</label>
+            <input type ="text" id="propertyValue"/>
+        </div><br>
+    
+        <div>
+            <input type="button" id="updateCarBtn" onclick="updateCar()" value="Update the car"/>
+        </div>
+    </form>
 
 <p id="result"></p>
 
@@ -40,9 +54,21 @@ function orderCar() {
     let gps = document.getElementById("gps").checked;  
     
     my_car={'electric':electric,'ac':ac,'gps':gps};
+    let out = document.getElementById('result');
+    out.innerHTML=JSON.stringify(my_car);
     
-    document.getElementById("result").innerHTML = my_car;
+}
+
+
+function updateCar(){
     
+    let property = document.getElementById("property").value;
+    let propertyVal = document.getElementById("propertyValue").value;
+
+    my_car[property]=propertyVal;
+    let out = document.getElementById('result');
+    out.innerHTML=JSON.stringify(my_car);
+
 }
 
 
